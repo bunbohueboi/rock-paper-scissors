@@ -49,11 +49,19 @@ function playRound(playerSelection, computerSelection){
     if (playerSelection=='scissors' && computerSelection=='rock'){
         console.log(`The computer chose ${computerSelection}, you lose.`)
         ++computerWins;
-        console.log(playerWins,computerWins);
-
     }
 }
 
-const computerSelection=getComputerChoice();
-//const playerSelection=getPlayerChoice();
-playRound('scissors','rock');
+function game(){
+    for (let i=0; i<5; i++){
+        //const playerSelection=getPlayerChoice();
+        playRound(getPlayerChoice(),getComputerChoice());
+    }
+    
+    if(playerWins > computerWins){ return `You have won ${playerWins} out of 5 times. You win!`}
+    if(playerWins < computerWins){ return `The coputer has won ${computerWins} out of 5 times. You lose!`}
+
+
+}
+
+console.log(game());
